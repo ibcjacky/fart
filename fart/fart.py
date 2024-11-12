@@ -107,7 +107,7 @@ import importlib
 import os
 from pathlib import Path
 import sys
-
+from typing import Dict, List
 import clipper
 
 
@@ -133,7 +133,7 @@ WIDTH = 79  # by PEP8, currently fixed
 #                                  formatting                                 #
 #=============================================================================#
 
-def cap_text(text, cap=CAP):
+def cap_text(text: str, cap=CAP):
     """ Adds a capping char to either end of a string
     NB: also adds newline to right end of line
       eg:
@@ -149,7 +149,7 @@ def maybe_pad_text(text: str, pad=False):
     return pad_char + text + pad_char
 
 
-def box_text(text, cap=CAP, line_char=LINE, width=WIDTH,
+def box_text(text: str, cap=CAP, line_char=LINE, width=WIDTH,
         oneline=False, pad=False):
     """ Encapsulates text in a "box" of width, with cap and lines
     #===========#
@@ -217,7 +217,7 @@ def box_text(text, cap=CAP, line_char=LINE, width=WIDTH,
 #=============================================================================#
 
 
-def load_font(fname):
+def load_font(fname: str):
     """ Load a ascii-art font from a py file """
     # Check font exists
     assert fname in FONT_NAMES
@@ -228,7 +228,7 @@ def load_font(fname):
     return font
 
 
-def build_fart_from_font(text_to_fart: str, font: dict[str, list[str]]) -> str:
+def build_fart_from_font(text_to_fart: str, font: Dict[str, List[str]]) -> str:
     """ This function gets the corresponding figlet font subsets for each
     char in the text string and splices them into a string.
 
@@ -292,7 +292,7 @@ def build_fart_from_font(text_to_fart: str, font: dict[str, list[str]]) -> str:
     return spliced
 
 
-def render_fart(text: str, font: dict[str, list[str]], cap=CAP, line=LINE,
+def render_fart(text: str, font: Dict[str, List[str]], cap=CAP, line=LINE,
     width=WIDTH, pad=False):
     """Render the fart text with the given font
 
@@ -360,7 +360,7 @@ def render_fart(text: str, font: dict[str, list[str]], cap=CAP, line=LINE,
     return fart
 
 
-def fart(text, font_name=None, cap=CAP, line=LINE,
+def fart(text: str, font_name=None, cap=CAP, line=LINE,
         copy=True, oneline=False, pad=False):
     """ Interface for farting. Gets fart, prints, and copies it to clip.
 
