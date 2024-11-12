@@ -190,6 +190,7 @@ Requirements
 This package was built for use in Python 3 in Linux.
 I expect this package should work for other environments, but no support for
 other OS is planned.
+Not only in Linux, actually it works in Windows as well.
 
 
 
